@@ -17,7 +17,9 @@ import java.util.List;
  * @author merjan
  */
 public class InsertaEmpleGBM extends javax.swing.JFrame {
-
+    private static final String NOT_SELECTABLE_OPTION1 = " Seleccione un oficio ";
+    private static final String NOT_SELECTABLE_OPTION2 = " Seleccione un empleado ";
+    private static final String NOT_SELECTABLE_OPTION3 = " Seleccione un departamento ";
     /**
      * Creates new form InsertaEmpleGBM
      */
@@ -53,20 +55,54 @@ public class InsertaEmpleGBM extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<String>(){
+        boolean selectionAllowed = true;
+        @Override
+        public void setSelectedItem(Object anObject) {
+        if (!NOT_SELECTABLE_OPTION1.equals(anObject)) {
+            super.setSelectedItem(anObject);
+        } else if (selectionAllowed) {
+            // Allow this just once
+            selectionAllowed = false;
+            super.setSelectedItem(anObject);
+        }
+      }});
+        jComboBox1.addItem(NOT_SELECTABLE_OPTION1);
 
         for (String ofi:listaoficio) {
             jComboBox1.addItem(ofi);
         }
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
-
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<String>(){
+            boolean selectionAllowed = true;
+            @Override
+            public void setSelectedItem(Object anObject) {
+                if (!NOT_SELECTABLE_OPTION2.equals(anObject)) {
+                    super.setSelectedItem(anObject);
+                } else if (selectionAllowed) {
+                    // Allow this just once
+                    selectionAllowed = false;
+                    super.setSelectedItem(anObject);
+                }
+            }});
+        jComboBox2.addItem(NOT_SELECTABLE_OPTION2);
         for (String dir:listadir) {
             jComboBox2.addItem(dir);
         }
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
-
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<String>(){
+            boolean selectionAllowed = true;
+            @Override
+            public void setSelectedItem(Object anObject) {
+                if (!NOT_SELECTABLE_OPTION3.equals(anObject)) {
+                    super.setSelectedItem(anObject);
+                } else if (selectionAllowed) {
+                    // Allow this just once
+                    selectionAllowed = false;
+                    super.setSelectedItem(anObject);
+                }
+            }});
+        jComboBox3.addItem(NOT_SELECTABLE_OPTION3);
         for (String dep:listadep) {
             jComboBox3.addItem(dep);
         }
