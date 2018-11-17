@@ -40,12 +40,15 @@ public class ExamenUT1GBM {
                 Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
                 EmpleadosDepGBM emp = new EmpleadosDepGBM();
                 emp.setVisible(true);
+                emp.setTitle("Empleados por departamento");
                 emp.setLocation(dim.width/2-emp.getSize().width/2, dim.height/2-emp.getSize().height/2);
                 InsertaEmpleGBM ins = new InsertaEmpleGBM();
                 ins.setVisible(true);
+                ins.setTitle("Insertar Empleado");
                 ins.setLocation(dim.width/2-emp.getSize().width/2, dim.height/2-emp.getSize().height/2);
                 SubidaSalarioGBM sub = new SubidaSalarioGBM();
                 sub.setVisible(true);
+                sub.setTitle("Subida salario por departamento");
                 sub.setLocation(dim.width/2-emp.getSize().width/2, dim.height/2-emp.getSize().height/2);
             }
         });
