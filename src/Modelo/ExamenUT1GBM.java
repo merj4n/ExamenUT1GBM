@@ -16,12 +16,14 @@ import java.sql.SQLException;
  */
 public class ExamenUT1GBM {
 
-
+    public static final String EMPLEADOS="Empleados por departamento";
+    public static final String INSERTAR="Insertar Empleado";
+    public static final String SALARIO="Subida salario por departamento";
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
 
        try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -40,15 +42,15 @@ public class ExamenUT1GBM {
                 Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
                 EmpleadosDepGBM emp = new EmpleadosDepGBM();
                 emp.setVisible(true);
-                emp.setTitle("Empleados por departamento");
+                emp.setTitle(EMPLEADOS);
                 emp.setLocation(dim.width/2-emp.getSize().width/2, dim.height/2-emp.getSize().height/2);
                 InsertaEmpleGBM ins = new InsertaEmpleGBM();
                 ins.setVisible(true);
-                ins.setTitle("Insertar Empleado");
+                ins.setTitle(INSERTAR);
                 ins.setLocation(dim.width/2-emp.getSize().width/2, dim.height/2-emp.getSize().height/2);
                 SubidaSalarioGBM sub = new SubidaSalarioGBM();
                 sub.setVisible(true);
-                sub.setTitle("Subida salario por departamento");
+                sub.setTitle(SALARIO);
                 sub.setLocation(dim.width/2-emp.getSize().width/2, dim.height/2-emp.getSize().height/2);
             }
         });

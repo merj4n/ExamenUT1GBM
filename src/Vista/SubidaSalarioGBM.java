@@ -9,6 +9,7 @@ import Modelo.DepartGBM;
 import Modelo.EmpleGBM;
 import Modelo.GestionEmpleGBM;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -18,6 +19,12 @@ import java.util.List;
  * @author merjan
  */
 public class SubidaSalarioGBM extends javax.swing.JFrame {
+
+    public static final String SUBIR_SALARIO = "Subir Salario";
+    public static final String DEPARTAMENTO = "Departamento";
+    public static final String CANTIDAD = "Cantidad";
+    public static final String ANTES = "ANTES\n----------------\n";
+    public static final String AHORA = "\nAHORA\n----------------\n";
 
     /**
      * Creates new form SubidaSalarioGBM
@@ -44,7 +51,7 @@ public class SubidaSalarioGBM extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
 
@@ -52,7 +59,7 @@ public class SubidaSalarioGBM extends javax.swing.JFrame {
             jComboBox1.addItem(dep);
         }
 
-        jButton1.setText("Subir Salario");
+        jButton1.setText(SUBIR_SALARIO);
 
         jButton1.addActionListener(new ActionListener() {
             @Override
@@ -61,7 +68,7 @@ public class SubidaSalarioGBM extends javax.swing.JFrame {
                 int numdep= DepartGBM.consultaDeptNo(jComboBox1.getSelectedItem().toString());
                 String listainicial= EmpleGBM.listaEmpleados(numdep);
                 String numeple= GestionEmpleGBM.subirSalario(numdep,jTextField1.getText());
-                jTextArea1.setText(numeple+"\n\n"+"ANTES\n----------------\n"+listainicial+"\nAHORA\n----------------\n"+ EmpleGBM.listaEmpleados(numdep));
+                jTextArea1.setText(numeple+"\n\n"+ ANTES +listainicial+ AHORA + EmpleGBM.listaEmpleados(numdep));
             }
         });
 
@@ -70,9 +77,9 @@ public class SubidaSalarioGBM extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane3.setViewportView(jTextArea1);
 
-        jLabel1.setText("Departamento");
+        jLabel1.setText(DEPARTAMENTO);
 
-        jLabel2.setText("Cantidad");
+        jLabel2.setText(CANTIDAD);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

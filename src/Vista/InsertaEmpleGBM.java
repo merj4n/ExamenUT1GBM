@@ -8,6 +8,7 @@ package Vista;
 import Modelo.DepartGBM;
 import Modelo.EmpleGBM;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -20,6 +21,14 @@ public class InsertaEmpleGBM extends javax.swing.JFrame {
     private static final String NOT_SELECTABLE_OPTION1 = " Seleccione un oficio ";
     private static final String NOT_SELECTABLE_OPTION2 = " Seleccione un empleado ";
     private static final String NOT_SELECTABLE_OPTION3 = " Seleccione un departamento ";
+    public static final String INSERTAR = "Insertar";
+    public static final String NOMBRE = "Nombre";
+    public static final String OFICIO = "Oficio";
+    public static final String DIRECTOR = "Director";
+    public static final String SALARIO = "Salario";
+    public static final String COMISIÓN = "Comisión";
+    public static final String DEPARTAMENTO = "Departamento";
+
     /**
      * Creates new form InsertaEmpleGBM
      */
@@ -53,7 +62,7 @@ public class InsertaEmpleGBM extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<String>(){
         boolean selectionAllowed = true;
@@ -107,7 +116,7 @@ public class InsertaEmpleGBM extends javax.swing.JFrame {
             jComboBox3.addItem(dep);
         }
 
-        jButton1.setText("Insertar");
+        jButton1.setText(INSERTAR);
 
         jButton1.addActionListener(new ActionListener() {
             @Override
@@ -127,17 +136,17 @@ public class InsertaEmpleGBM extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Nombre");
+        jLabel1.setText(NOMBRE);
 
-        jLabel2.setText("Oficio");
+        jLabel2.setText(OFICIO);
 
-        jLabel3.setText("Director");
+        jLabel3.setText(DIRECTOR);
 
-        jLabel4.setText("Salario");
+        jLabel4.setText(SALARIO);
 
-        jLabel5.setText("Comisión");
+        jLabel5.setText(COMISIÓN);
 
-        jLabel6.setText("Departamento");
+        jLabel6.setText(DEPARTAMENTO);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
