@@ -8,6 +8,7 @@ package Vista;
 import Modelo.DepartGBM;
 import Modelo.EmpleGBM;
 import Modelo.GestionEmpleGBM;
+import Utilidad.UtilidadGBM;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,8 @@ public class SubidaSalarioGBM extends javax.swing.JFrame {
     public static final String CANTIDAD = "Cantidad";
     public static final String ANTES = "ANTES\n----------------\n";
     public static final String AHORA = "\nAHORA\n----------------\n";
+    public static final String INTRODUCE_UN_VALOR = "Introduce un valor.";
+    public static final String INTRODUCE_UN_VALOR_NUMÉRICO = "Introduce un valor numérico.";
 
     /**
      * Creates new form SubidaSalarioGBM
@@ -51,7 +54,7 @@ public class SubidaSalarioGBM extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
 
@@ -64,11 +67,18 @@ public class SubidaSalarioGBM extends javax.swing.JFrame {
         jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GestionEmpleGBM.crearProcedimientos();
-                int numdep= DepartGBM.consultaDeptNo(jComboBox1.getSelectedItem().toString());
-                String listainicial= EmpleGBM.listaEmpleados(numdep);
-                String numeple= GestionEmpleGBM.subirSalario(numdep,jTextField1.getText());
-                jTextArea1.setText(numeple+"\n\n"+ ANTES +listainicial+ AHORA + EmpleGBM.listaEmpleados(numdep));
+
+                if (UtilidadGBM.JFEsvacio(jTextField1)) {
+                    jTextArea1.setText(INTRODUCE_UN_VALOR);
+                }else if(!UtilidadGBM.isNumeric(jTextField1.getText())) {
+                    jTextArea1.setText(INTRODUCE_UN_VALOR_NUMÉRICO);
+                }else {
+                    GestionEmpleGBM.crearProcedimientos();
+                    int numdep = DepartGBM.consultaDeptNo(jComboBox1.getSelectedItem().toString());
+                    String listainicial = EmpleGBM.listaEmpleados(numdep);
+                    String numeple = GestionEmpleGBM.subirSalario(numdep, jTextField1.getText());
+                    jTextArea1.setText(numeple + "\n\n" + ANTES + listainicial + AHORA + EmpleGBM.listaEmpleados(numdep));
+                }
             }
         });
 

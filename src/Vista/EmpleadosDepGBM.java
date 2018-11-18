@@ -42,7 +42,7 @@ public class EmpleadosDepGBM extends javax.swing.JFrame {
         jTextPane2 = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
 

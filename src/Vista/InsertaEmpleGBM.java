@@ -7,8 +7,10 @@ package Vista;
 
 import Modelo.DepartGBM;
 import Modelo.EmpleGBM;
+import Utilidad.UtilidadGBM;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -62,7 +64,7 @@ public class InsertaEmpleGBM extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<String>(){
         boolean selectionAllowed = true;
@@ -123,16 +125,27 @@ public class InsertaEmpleGBM extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 int dir= EmpleGBM.obtenerNumDir(jComboBox2.getSelectedItem().toString());
                 int dep_num= DepartGBM.consultaDeptNo(jComboBox3.getSelectedItem().toString());
-
-            EmpleGBM.insertaEmp(
-                    jTextField1.getText(),
-                    jComboBox1.getSelectedItem().toString(),
-                    dir,
-                    Integer.parseInt(jTextField2.getText()),
-                    Integer.parseInt(jTextField3.getText()),
-                    dep_num
-                    );
-                //System.exit(0);
+                System.out.println(jComboBox1.getSelectedIndex());
+                if (UtilidadGBM.JFEsvacio(jTextField2)) {
+                    jTextField2.setText("0");
+                 }if (UtilidadGBM.JFEsvacio(jTextField3)) {
+                    jTextField3.setText("0");
+                 }
+                 if (UtilidadGBM.JFEsvacio(jTextField1)) {
+                        jTextField1.setText(null);
+                 }else if(jComboBox1.getSelectedItem().equals(NOT_SELECTABLE_OPTION1)) {
+                 }else if(jComboBox2.getSelectedItem().equals(NOT_SELECTABLE_OPTION2)) {
+                 }else if(jComboBox3.getSelectedItem().equals(NOT_SELECTABLE_OPTION3)) {
+                 }else {
+                    EmpleGBM.insertaEmp(
+                            jTextField1.getText(),
+                            jComboBox1.getSelectedItem().toString(),
+                            dir,
+                            Integer.parseInt(jTextField2.getText()),
+                            Integer.parseInt(jTextField3.getText()),
+                            dep_num
+                            );
+                 }
             }
         });
 
