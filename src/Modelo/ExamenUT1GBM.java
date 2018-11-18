@@ -47,11 +47,11 @@ public class ExamenUT1GBM {
                 InsertaEmpleGBM ins = new InsertaEmpleGBM();
                 ins.setVisible(true);
                 ins.setTitle(INSERTAR);
-                ins.setLocation(dim.width/2-emp.getSize().width/2, dim.height/2-emp.getSize().height/2);
+                ins.setLocation(dim.width/3-emp.getSize().width/2, dim.height/2-emp.getSize().height/2);
                 SubidaSalarioGBM sub = new SubidaSalarioGBM();
                 sub.setVisible(true);
                 sub.setTitle(SALARIO);
-                sub.setLocation(dim.width/2-emp.getSize().width/2, dim.height/2-emp.getSize().height/2);
+                sub.setLocation((dim.width/5)*3, dim.height/2-emp.getSize().height/2);
             }
         });
 

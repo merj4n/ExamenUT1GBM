@@ -43,7 +43,9 @@ public class UtilidadGBM {
     }
 
     public static boolean isNumeric(String cadena) {
-
+    /**
+     * Devuelve true si la cadena es numerica
+     */
         boolean resultado;
 
         try {

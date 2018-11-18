@@ -30,6 +30,7 @@ public class InsertaEmpleGBM extends javax.swing.JFrame {
     public static final String SALARIO = "Salario";
     public static final String COMISIÓN = "Comisión";
     public static final String DEPARTAMENTO = "Departamento";
+    public static final String T = "0";
 
     /**
      * Creates new form InsertaEmpleGBM
@@ -127,9 +128,9 @@ public class InsertaEmpleGBM extends javax.swing.JFrame {
                 int dep_num= DepartGBM.consultaDeptNo(jComboBox3.getSelectedItem().toString());
                 System.out.println(jComboBox1.getSelectedIndex());
                 if (UtilidadGBM.JFEsvacio(jTextField2)) {
-                    jTextField2.setText("0");
+                    jTextField2.setText(T);
                  }if (UtilidadGBM.JFEsvacio(jTextField3)) {
-                    jTextField3.setText("0");
+                    jTextField3.setText(T);
                  }
                  if (UtilidadGBM.JFEsvacio(jTextField1)) {
                         jTextField1.setText(null);

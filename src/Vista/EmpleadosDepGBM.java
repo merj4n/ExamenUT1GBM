@@ -19,6 +19,9 @@ import java.util.List;
  */
 public class EmpleadosDepGBM extends javax.swing.JFrame {
 
+    public static final String EMPLEADOS = "Empleados";
+    public static final String DEPARTAMENTO = "Departamento";
+
     /**
      * Creates new form EmpleadosDepGBM
      */
@@ -59,12 +62,12 @@ public class EmpleadosDepGBM extends javax.swing.JFrame {
         });
 
 
-        jButton1.setText("Empleados");
+        jButton1.setText(EMPLEADOS);
 
         jTextPane2.setEditable(false);
         jScrollPane2.setViewportView(jTextPane2);
 
-        jLabel1.setText("Departamento");
+        jLabel1.setText(DEPARTAMENTO);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
