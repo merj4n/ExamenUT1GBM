@@ -147,7 +147,7 @@ public class EmpleGBM {
         PreparedStatement ps= null;
         String valor="";
         try {
-            ps = ExamenUT1GBM.conexionUp().prepareStatement("select * from emple where dept_no = ?");
+            ps = ExamenUT1GBM.conexionUp().prepareStatement("select apellido, salario from emple where dept_no = ?");
             ps.setString(1,num);
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
@@ -156,7 +156,6 @@ public class EmpleGBM {
                 for (int i=1;i<=columnsNumber;i++){
                     valor= valor+rs.getString(i)+" ";
                 }
-                //System.out.println(valor);
                 valor=valor+"\n";
             }
             ps.close();
@@ -164,8 +163,6 @@ public class EmpleGBM {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return "";
     }
-
 }
